@@ -1,0 +1,39 @@
+<main class="main">
+
+<div class="top_name">
+    <%# ログインしているときは以下を表示する %>
+    <% if user_signed_in? %>
+        <div class="greeting"> 
+        Job-Boardへようこそ,
+        <%= link_to "#{current_user.nickname}さん", user_path(current_user.id), class: :greeting__link%>
+        。あなたの未来がきっと見つかる。
+        </div> 
+    <% end %>
+    <%# // ログインしているときは上記を表示する %>
+  </div>
+
+  <div id="home" class="big-bg">
+  <div class="job-img">
+    <h2 class="img-title">What is your happiness?</h2>
+    <p>あなたのライフスタイルにあった医療機関を見つけよう</p>
+  </div>
+</div><!--/#home -->
+
+<%# // 検索機能 %>
+
+<%= form_with(url: search_jobs_path, local: true, method: :get, class: "search-form") do |form| %>
+<h4 class="search-title">あなたの未来がきっと見つかる</h4>
+  <%= form.text_field :keyword, placeholder: "医療機関を検索する", class: "search-input" %>
+  <%= form.submit "検索", class: "search-btn" %>
+<% end %>
+
+  <div class="inner">
+  <div class="inners">
+    <h3 class="job-new">最新の求人情報</h3>
+    <div class="card__wrapper">
+      <%# 投稿機能実装後、部分テンプレートでプロトタイプ投稿一覧を表示する %>
+      <%= render partial: "job", collection: @jobs %>
+    </div>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,60 @@
+<%= form_with model: job, local: true do |f|%>
+  <div class="weight-bold-text">
+    <%= f.label :name, "病院名" %><br />
+    <%= f.text_field :name, id:"prototype_title" %>
+  </div>
+
+  <div class="weight-bold-text">
+    給料
+  <span class="indispensable">必須</span>
+  </div>
+  <%= f.collection_select(:salary_id , Salary.all, :id, :name, {}, {class:"select-box", id:"job-salary"}) %>  
+
+  <div class="weight-bold-text">
+    地域
+  <span class="indispensable">必須</span>
+  </div>
+  <%= f.collection_select(:area_id, Area.all, :id, :name, {}, {class:"select-box", id:"job-area"}) %>  
+
+  <div class="weight-bold-text">
+    業務内容
+  <span class="indispensable">必須</span>
+  </div>
+  <%= f.collection_select(:work1_id, Work1.all, :id, :name, {}, {class:"select-box", id:"job-work1"}) %> 
+  <%= f.collection_select(:work2_id, Work2.all, :id, :name, {}, {class:"select-box", id:"job-work2"}) %>
+  <%= f.collection_select(:work3_id, Work3.all, :id, :name, {}, {class:"select-box", id:"job-work3"}) %>
+
+  <div class="weight-bold-text">
+    就職試験
+  <span class="indispensable">必須</span>
+  </div>
+  <%= f.collection_select(:test_month_id, TestMonth.all, :id, :name, {}, {class:"select-box", id:"job-month"}) %> 
+  <span>月</span>
+  <%= f.collection_select(:test_day_id , TestDay.all, :id, :name, {}, {class:"select-box", id:"job-day"}) %>  
+  <span>日</span>
+  
+  <div class="weight-bold-text">
+    試験内容
+  <span class="indispensable">必須</span>
+  </div>
+  <%= f.collection_select(:test_id, Test.all, :id, :name, {}, {class:"select-box", id:"job-test"}) %>  
+
+  <div class="field">
+    <%= f.label :note, "備考" %><br />
+    <%= f.text_area :note, class: :form__text, id:"prototype_catch_copy" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image, "病院外観" %><br />
+    <%= f.file_field :image, id:"prototype_image" %>
+  </div>
+
+  <div class="field">                                     <%# 追加%>
+    <%= f.label :image2, "求人票" %><br />
+    <%= f.file_field :image2, id:"prototype_image" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "保存する", class: :form__btn  %>
+  </div>
+<% end %>

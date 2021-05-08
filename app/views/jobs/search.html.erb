@@ -1,0 +1,19 @@
+<div id="search-img" class="big-bg">
+
+<%= form_with(url: search_jobs_path, local: true, method: :get, class: "search-form") do |form| %>
+<h3 class="search-title">あなたの未来がきっと見つかる</h3>
+  <%= form.text_field :keyword, placeholder: "医療機関を検索", class: "search-input" %>
+  <%= form.submit "検索", class: "search-btn" %>
+<% end %>
+</div>
+
+<div class="inner">
+  <div class="inners">
+<div class="card__wrapper">
+  <%# 投稿機能実装後、部分テンプレートでプロトタイプ投稿一覧を表示する %>
+  <% @jobs.each do |job| %>
+  <%= render partial: "job", collection: @jobs %>
+  <% end %>
+  </div>
+  </div>
+</div>

@@ -1,0 +1,146 @@
+<main class="main">
+
+<div id="show" class="job-show">
+</div><!--/#show -->
+
+  <div class="inner">
+    <div class="prototype__wrapper">
+      <p class="prototype__hedding">
+      医療機関名：
+        <%= @job.name %>
+      </p>
+      <div class="name-btn">
+      <%= link_to "就職教員 #{@job.user.nickname}", user_path(@job.user_id), class: :prototype__user %>
+
+      <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
+      <% if user_signed_in? && current_user.id == @job.user_id  %>
+        <div class="prototype__manage">
+          <%= link_to "編集する", edit_job_path(@job.id), class: :prototype__btn %>
+          <%= link_to "削除する", job_path(@job.id), method: :delete, class: :prototype__btn %>
+        </div>
+      <% end %>
+      <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
+      </div>
+
+      <div class="show-main">
+        <div class="prototype__image">
+          <%= image_tag @job.image2 %>
+        </div>
+        <div class="prototype__body">
+        <div class="prototype__detail">
+          <p class="detail__title">給料/地域</p>
+          <p class="detail__message">
+            <%= @job.salary.name %>
+            <span>/<span>
+            <%= @job.area.name %>
+          </p>
+        </div>
+        <div class="prototype__detail">
+          <p class="detail__title">業務内容</p>
+          <p class="detail__message">
+            <%= @job.work1.name %>
+
+            <% unless @job.work2_id == 1 %>
+            <span>・</span>
+            <%= @job.work2.name %>
+            <% end %>
+
+            <% unless @job.work3_id == 1 %>
+            <span>・</span>
+            <%= @job.work3.name %>
+            <% end %>
+
+          </p>
+        </div>
+
+        <div class="prototype__detail">
+          <p class="detail__title">試験日時/内容</p>
+          <p class="detail__message">
+            <%= @job.test_month.name %>
+            <span>月</span>
+            <%= @job.test_day.name %>
+            <span>日<span>
+            <span>/</span>
+            <%= @job.test.name %>
+          </p>
+        </div>
+
+        <div class="prototype__detail">
+          <p class="detail__title">備考欄</p>
+          <p class="detail__message">
+
+          <% unless @job.note == nil %>  <%# 値が空でなければ表示する %>
+            <%= @job.note %>
+          <% end %>
+          </p>
+        </div>
+      </div>
+
+      </div>
+              <%# 地図の表示 %>
+        <section id="location">
+            <div class="wrapper">
+                <div class="location-info">
+                    <h3 class="sub-title"><%= @job.name %></h3>
+                    <p>
+                        住所： <%= @job.area.name %><br>
+                        藤沢市辻堂神台1-5-1<br>
+                        〇〇〇〇<br>
+                        電話： 03-1111-1111<br>
+                        診療時間： 10:00〜20:00<br>
+                        休日：日曜日
+                    </p>
+                </div><!-- /.location-info -->
+                <div class="location-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1627.2926339691821!2d139.4438396567948!3d35.34111898027503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601852023b1f60d5%3A0x3288286d69df3cd!2z5rmY5Y2X6Jek5rKi5b6z5rSy5Lya55eF6Zmi!5e0!3m2!1sja!2sjp!4v1619936185755!5m2!1sja!2sjp" width="400" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div><!-- /.location-map -->
+            </div><!-- /.wrapper -->
+        </section><!-- /#location -->
+              <%# 地図の表示ここまで %>
+
+          <div class="interview">  <%# gogleフォーム %>
+          <h5><%= @job.name %>
+          に興味を持った場合はこちらのフォームから</h5>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScq-RnGgVPXada-MpExa4XGmAgAc76iq3t21cVBYTgDxdYe-g/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+          </div>
+
+
+      <h5>その他のコメントはこちらから</h5>
+      <div class="prototype__comments">
+          <% if user_signed_in? %>                  <%# ログインしているユーザーには以下のコメント投稿フォームを表示する %>
+          <%= form_with(model: [@job, @comment],local: true) do |f| %>
+            <div class="field">
+              <%= f.label :text, "コメント" %><br />
+              <%= f.text_field :text, id:"comment_text" %>
+            </div>
+
+            <div class="weight-bold-text"> 
+              現在のモチベーション
+            </div>
+            <%= f.collection_select(:think_id, Think.all, :id, :name, {}, {class:"select-box", id:"job-think"}) %>  
+            
+
+            <div class="actions">
+            <%= f.submit "送信する", class: :form__btn  %>
+            </div>
+            <% end %> 
+          <% end %>                                 <%# // ログインしているユーザーには上記を表示する %>
+          
+        <ul class="comments_lists">
+          <%# 投稿に紐づくコメントを一覧する処理を記述する %>
+          <% @comments.each do |comment| %>
+            <li class="comments_list">
+              <p>コメント:<%= comment.text %></p>
+              <p>現在のモチベーション：<%= comment.think.name %></p>
+              <p>nickname：<%= link_to comment.user.nickname, "/users/#{comment.user_id}", class: :comment_user %></p>
+            <% end %>
+            </li>
+            
+          
+          <%# // 投稿に紐づくコメントを一覧する処理を記述する %>   
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</main>

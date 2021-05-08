@@ -1,0 +1,11 @@
+<div class="card">
+  <%= link_to image_tag(job.image, class: :card__img ), job_path(job.id) %>
+  <div class="card__body">
+    <%= link_to job.name, job_path(job.id), class: :card__title%>
+    <p class="card__summary">
+      <%= job.area.name%>
+    </p>
+    <%= link_to "by #{job.user.nickname}", job_path(job.id), class: :card__user %>
+  </div>
+</div>
+
