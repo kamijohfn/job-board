@@ -39,17 +39,17 @@
   </div>
   <%= f.collection_select(:test_id, Test.all, :id, :name, {}, {class:"select-box", id:"job-test"}) %>  
 
-  <div class="field">
+  <div class="weight-bold-text">
     <%= f.label :note, "備考" %><br />
     <%= f.text_area :note, class: :form__text, id:"prototype_catch_copy" %>
   </div>
 
-  <div class="field">
+  <div class="weight-bold-text">
     <%= f.label :image, "病院外観" %><br />
     <%= f.file_field :image, id:"prototype_image" %>
   </div>
 
-  <div class="field">                                     <%# 追加%>
+  <div class="weight-bold-text">                                     <%# 追加%>
     <%= f.label :image2, "求人票" %><br />
     <%= f.file_field :image2, id:"prototype_image" %>
   </div>

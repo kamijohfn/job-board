@@ -139,6 +139,10 @@ a {
   font-weight: bold;
 }
 
+.actions{
+  padding-top: 10px;
+}
+
 /* メイン画像 */
 .big-bg {
   background-size: cover;
@@ -475,5 +479,23 @@ h5{
 #search-img{
   background-image: url("search.jpeg");
   min-height: 50vh;
+}
+
+.search-sub{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  padding: 10px;
+  font-family: 'Philosopher' , serif;
+  font-weight: bold;
+}
+
+.search-area{
+
+}
+
+.search-work{
+  margin-left: 40px;
 }
 

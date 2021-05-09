@@ -1,6 +1,7 @@
 class JobsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_job, only:[:edit, :show, :update]
+  before_action :search_product, only: [:index, :search]
 
   def index
     @jobs = Job.all.order("created_at DESC")
@@ -48,7 +49,9 @@ class JobsController < ApplicationController
   end
 
   def search
-    @jobs = Job.search(params[:keyword])
+    @jobs = Job.search(params[:keyword])  #病院名検索
+
+    @results = @p.result #.includes(:area)  #詳細検索
   end
 
   private
@@ -59,6 +62,10 @@ class JobsController < ApplicationController
 
     def set_job
       @job = Job.find(params[:id])
+    end
+
+    def search_product
+      @p = Job.ransack(params[:q])
     end
   
 end

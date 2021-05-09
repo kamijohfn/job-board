@@ -19,13 +19,37 @@
   </div>
 </div><!--/#home -->
 
-<%# // 検索機能 %>
+<%# // 検索機能%>
 
-<%= form_with(url: search_jobs_path, local: true, method: :get, class: "search-form") do |form| %>
+<%#= form_with(url: search_jobs_path, local: true, method: :get, class: "search-form") do |form| %>
+<%#<h4 class="search-title">あなたの未来がきっと見つかる</h4>
+  <%#= form.text_field :keyword, placeholder: "医療機関を検索する", class: "search-input" %>
+  <%#= form.submit "検索", class: "search-btn" %>
+<%# end %>
+
+<%# // 詳細検索機能 %>
+<div class="inners">
+<h3 class="job-new">求人情報検索</h3>
+</div>
+<div class="search-form">
+<%= search_form_for @p, url: search_jobs_path do |f| %>
 <h4 class="search-title">あなたの未来がきっと見つかる</h4>
-  <%= form.text_field :keyword, placeholder: "医療機関を検索する", class: "search-input" %>
-  <%= form.submit "検索", class: "search-btn" %>
-<% end %>
+  <div class = 'nav-up'>
+    <%= f.text_field :name_cont, placeholder: "医療機関名で検索する", class: "search-input" %>
+    <%= f.submit '検索' ,class: "search-btn"%>
+  </div>
+  <div class="search-sub">
+  <div class="search-area">
+  <%= f.label :area_id_eq, '希望の地域:' %>
+  <%= f.collection_select :area_id_eq, Area.where.not(id:0), :id, :name, include_blank: '指定なし'  %>  <%#= activehashから引用%>
+  </div>
+  <div class="search-work">
+  <%= f.label :work1_id_eq, '希望の業務:' %>
+  <%= f.collection_select :work1_id_eq, Work1.where.not(id:0), :id, :name, include_blank: '指定なし' %>
+    <% end %>
+  </div>
+</div>
+</div>
 
   <div class="inner">
   <div class="inners">

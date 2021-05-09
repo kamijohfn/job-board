@@ -14,6 +14,26 @@
   <% @jobs.each do |job| %>
   <%= render partial: "job", collection: @jobs %>
   <% end %>
+
+<% if @results.present? %>
+  <% @results.each do |job| %>
+    <td>
+    <br>
+    <li>
+    <%= render partial: "job", collection: @jobs %>
+      <%#= job.name %>
+    </li>
+    <% end %>
+<% else %>
+  該当する医療機関はありません
+<br>
+<% end %>
+
   </div>
   </div>
+
+<%#=詳細検索%>
+
+<%= link_to 'トップページへ戻る', root_path %>
+
 </div>
