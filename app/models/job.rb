@@ -17,6 +17,9 @@ class Job < ApplicationRecord
   with_options presence: true do
       validates :name
       validates :image
+      validates :city
+      validates :address
+      
 
     with_options numericality: { other_than: 1 } do
         validates :salary_id 
@@ -37,7 +40,7 @@ class Job < ApplicationRecord
     if search != ""
       Job.where('name LIKE(?)', "%#{search}%")  #nemeを検索する
     else
-      Job.all
+     Job.all
     end
   end
 

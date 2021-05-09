@@ -17,6 +17,32 @@
   <%= f.collection_select(:area_id, Area.all, :id, :name, {}, {class:"select-box", id:"job-area"}) %>  
 
   <div class="weight-bold-text">
+    <%= f.label :city, "市町村" %><br />
+    <%= f.text_area :city, class: :form__text, id:"prototype_catch_copy" %>
+  </div>
+
+  <div class="weight-bold-text">
+    <%= f.label :address, "番地" %><br />
+    <%= f.text_area :address, class: :form__text, id:"prototype_catch_copy" %>
+  </div>
+
+  <div class="weight-bold-text">
+    <%= f.label :building, "建物・ビル名" %><br />
+    <%= f.text_area :building, class: :form__text, id:"prototype_catch_copy" %>
+  </div>
+
+  <div class="weight-bold-text">
+    <%= f.label :phone, "電話番号" %><br />
+    <%= f.text_field :phone, id:"prototype_title" %>
+  </div>
+
+  <div class="weight-bold-text">
+    <%= f.label :map, "地図アドレス" %><br />
+    <%= f.text_area :map, class: :form__text, id:"prototype_catch_copy" %>
+  </div>
+
+
+  <div class="weight-bold-text">
     業務内容
   <span class="indispensable">必須</span>
   </div>

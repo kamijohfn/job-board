@@ -499,3 +499,21 @@ h5{
   margin-left: 40px;
 }
 
+.search_card{
+  justify-content: center;
+}
+
+.search-sub2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  padding: 10px;
+  font-family: 'Philosopher' , serif;
+  font-weight: bold;
+  color: white;
+}
+
+.search-work2{
+  margin-left: 40px;
+}
