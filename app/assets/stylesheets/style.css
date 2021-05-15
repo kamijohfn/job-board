@@ -38,7 +38,7 @@ a {
 
 .header {
   background-color: #f1f8fe;
-  margin-bottom: 48px;  
+  margin-bottom: 48px;
   padding: 20px 0;
 
 }
@@ -272,16 +272,6 @@ a {
   margin: 0 auto;
   padding: 16px 0;
 }
-
-/*.prototype__image.show{ 
-  opacity: 1;
-  pointer-events: all;
-}
-
-.model-image.show{  
-  opacity: 1;
-} */
-
 .prototype__detail{
   display: flex;
   align-items: left;
