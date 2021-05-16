@@ -24,7 +24,14 @@
 
       <div class="show-main">
         <div class="prototype__image">
+
+ <%#= image_tag @job.image2, class:"model-image" %>
+
+          <%=  link_to @job.image2, 'data-lightbox': @job.image2 do %>
+
           <%= image_tag @job.image2 %>
+
+          <% end %>
         </div>
         <div class="prototype__body">
         <div class="prototype__detail">
@@ -82,21 +89,39 @@
             <div class="wrapper">
                 <div class="location-info">
                     <h3 class="sub-title"><%= @job.name %></h3>
-                    <p>
-                        住所： <%= @job.area.name %><br>
+                      
+                        <p class="detail__title">住所</p>
+                        <p class="location__message">
+                        <%= @job.area.name %><br>
                         <%= @job.city %>
                         <%= @job.address %><br>
+
                         <% unless @job.building%>
                         <%= @job.building %><br>
                         <%end%>
-                        電話： <%= @job.phone %><br>
-                        診療時間： 8:30〜17:00<br>
-                        休日：土曜日/日曜日/祝日
-                    </p>
+                        </p>
+
+                        <p class="detail__title">電話</p>
+                        <p class="location__message">
+                        <%= @job.phone %><br>
+                        </p>
+
+                        <p class="detail__title">診療時間</p>
+                        <p class="location__message">
+                        8:30〜17:00<br>
+                        </p>
+
+                        <p class="detail__title">休日</p>
+                        <p class="location__message">
+                        土曜日/日曜日/祝日
+                        </p>
+                    
                 </div><!-- /.location-info -->
                 <div class="location-map">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1627.2926339691821!2d139.4438396567948!3d35.34111898027503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601852023b1f60d5%3A0x3288286d69df3cd!2z5rmY5Y2X6Jek5rKi5b6z5rSy5Lya55eF6Zmi!5e0!3m2!1sja!2sjp!4v1619936185755!5m2!1sja!2sjp" width="400" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 <%= link_to @job.name, @job.map %>
+
+                
                 
                 </div><!-- /.location-map -->         
             </div><!-- /.wrapper -->
