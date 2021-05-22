@@ -22,6 +22,11 @@
 | name            | string     | null: false                    |
 | salary_id       | integer    | null: false                    |
 | area_id         | integer    | null: false                    |
+| city            | string     | null: false                    |
+| address         | string     | null: false                    |
+| building        | string     |                                |
+| phone           | string     | null: false                    |
+| map             | text       |                                |
 | work1_id        | integer    | null: false                    |
 | work2_id        | integer    |                                |
 | work3_id        | integer    |                                |
