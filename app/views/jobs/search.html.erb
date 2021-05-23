@@ -1,19 +1,63 @@
 <div id="search-img" class="big-bg">
 
-<%= form_with(url: search_jobs_path, local: true, method: :get, class: "search-form") do |form| %>
-<h3 class="search-title">あなたの未来がきっと見つかる</h3>
+<%#= form_with(url: search_jobs_path, local: true, method: :get, class: "search-form") do |form| %>
+<%#<h3 class="search-title">あなたの未来がきっと見つかる</h3>
   <%= form.text_field :keyword, placeholder: "医療機関を検索", class: "search-input" %>
-  <%= form.submit "検索", class: "search-btn" %>
-<% end %>
+  <%#= form.submit "検索", class: "search-btn" %>
+<%# end %>
+<%#</div>%>
+
+  <div class="search-form">
+    <%= search_form_for @p, url: search_jobs_path do |f| %>
+      <h4 class="search-title">あなたの未来がきっと見つかる</h4>
+    <div class = 'nav-up'>
+      <%= f.text_field :name_cont, placeholder: "医療機関名で検索する", class: "search-input" %>
+      <%= f.submit '検索' ,class: "search-btn"%>
+    </div>
+    <div class="search-sub2">
+      <div class="search-area2">
+        <%= f.label :area_id_eq, '希望の地域:' %>
+        <%= f.collection_select :area_id_eq, Area.where.not(id:0), :id, :name, include_blank: '指定なし'  %>  <%#= activehashから引用%>
+      </div>
+      <div class="search-work2">
+          <%= f.label :work1_id_eq, '希望の業務:' %>
+          <%= f.collection_select :work1_id_eq, Work1.where.not(id:0), :id, :name, include_blank: '指定なし' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="inner">
+<%#<div class="inner">
   <div class="inners">
 <div class="card__wrapper">
   <%# 投稿機能実装後、部分テンプレートでプロトタイプ投稿一覧を表示する %>
-  <% @jobs.each do |job| %>
-  <%= render partial: "job", collection: @jobs %>
-  <% end %>
-  </div>
-  </div>
+  <%# @jobs.each do |job| %>
+  <%#= render partial: "job", collection: @jobs %>
+  <%#<% end %>
+<div class="inners">
+  <h3 class="job-new">検索結果</h3>
 </div>
+    <div class="inner">
+      <% if @results.present? %>
+      <% @results.each do |job| %>
+      <td>
+      <br>
+      <li>
+      <%= render partial: "job", collection: @jobs %>
+      <%#= job.name %>
+      </li>
+      <% end %>
+      <% else %>
+        該当する医療機関はありません
+      <br>
+      <% end %>
+    </div>
+
+  <%#</div>
+  </div>
+
+<%#=詳細検索%>
+
+<%= link_to 'トップページへ戻る', root_path %>
+

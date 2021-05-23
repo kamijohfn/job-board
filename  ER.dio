@@ -1,0 +1,37 @@
+<mxfile>
+    <diagram id="HZ5lMM0vl2qLQC5hOGf-" name="ページ1">
+        <mxGraphModel dx="895" dy="830" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="15" value="Users_table" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="80" width="320" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="email ( string型  Not Null, unique: true )&#10;encrypted_password ( string型  Not Null )&#10;nickname ( string型  Not Null, unique: true |)&#10;last_name ( string型  Not Null )&#10;first_name  ( string型  Not Null )&#10;last_name_kana ( string型  Not Null )&#10;first_name_kana ( string型  Not Null )" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=13;" parent="15" vertex="1">
+                    <mxGeometry y="26" width="320" height="134" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="Jobs_table" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=15;" vertex="1" parent="1">
+                    <mxGeometry x="480" y="80" width="320" height="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="name ( string型 Not Null )&#10;salary_id ( integer型  Not Null )&#10;area_id         | ( integer Not Null )&#10;city ( string型  Not Null )&#10;address ( string型  Not Null )&#10;building  ( string型 )&#10;phone (string型  Not Null )&#10;map ( text型 )&#10;work1_id ( integer型  Not Null )&#10;work2_id ( integer型 ) &#10;work3_id ( integer型 )&#10;test_month_id ( integer型   Not Null )&#10;test_day_id (integer型 Not Null )&#10;test_id ( integer型  Not Null )&#10;note ( text型 Not Null )&#10;user ( references型 ）" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=13;" vertex="1" parent="18">
+                    <mxGeometry y="26" width="320" height="294" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=ERmany;startFill=0;endArrow=ERone;endFill=0;fontSize=13;" edge="1" parent="1" source="22" target="16">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="Comments＿table" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="440" width="320" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="text ( string型 Not Null )&#10;think_id ( integer型  Not Null )&#10;user ( references型 )&#10;job ( references型 )" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=13;" vertex="1" parent="22">
+                    <mxGeometry y="26" width="320" height="94" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=-0.012;entryY=0.228;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=13;endArrow=ERmany;endFill=0;startArrow=ERone;startFill=0;" edge="1" parent="1" source="16" target="19">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.497;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;fontSize=13;" edge="1" parent="1" source="23" target="19">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

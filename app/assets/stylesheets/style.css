@@ -38,8 +38,8 @@ a {
 
 .header {
   background-color: #f1f8fe;
-  margin-bottom: 48px;
-  padding: 20px 0;
+  margin-bottom: 0px;   /* 元の値48 ヘッダーの幅*/
+  padding: 0px 0;   /* 元の値20 ヘッダーの幅*/
 
 }
 .inner {
@@ -139,6 +139,10 @@ a {
   font-weight: bold;
 }
 
+.actions{
+  padding-top: 10px;
+}
+
 /* メイン画像 */
 .big-bg {
   background-size: cover;
@@ -165,6 +169,7 @@ a {
 .top_name{
   font-size: 20px;
   margin-left: 5%;
+  padding-top: 5%;
   font-family: 'Philosopher' , serif;
 }
 
@@ -173,12 +178,19 @@ a {
   text-align: center;
 }
 
-.job-new, h5{   /* トップページの最新の求人情報と詳細ページのgoogle form */
+.job-new, .job-info, h5{   /* トップページの最新の求人情報と詳細ページのgoogle form */
   font-size: 30px;
   font-family: 'Philosopher' , serif;
-  margin-top: 8%;
   display: inline-block;
   border-bottom: 2px #0bd solid;
+}
+
+.job-info{
+  margin-top: 10%;
+}
+
+h5{
+  margin-top: 8%;
 }
 
 /* メイン */
@@ -198,7 +210,7 @@ a {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  min-height: calc(100vh - 161px);
+  min-height: calc(100vh - 461px); /*最新の求人情報と求人情報のマージンを決める*/
 }
 .card {
   width: calc((100% - 50px) / 3);
@@ -255,6 +267,7 @@ a {
   font-size: 24px;
   font-weight: bold; /*フォントの太さ*/
   text-align: left;
+  margin-top: 5%;
 }
 .prototype__user{
   display: block;
@@ -327,7 +340,7 @@ a {
 }
 
 .location-info p {
-  padding: 12px 10px;
+  padding: 5px 10px;
 }
 
 .location-map{
@@ -477,3 +490,39 @@ h5{
   min-height: 50vh;
 }
 
+.search-sub{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  padding: 10px;
+  font-family: 'Philosopher' , serif;
+  font-weight: bold;
+}
+
+.search-area{
+
+}
+
+.search-work{
+  margin-left: 40px;
+}
+
+.search_card{
+  justify-content: center;
+}
+
+.search-sub2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  padding: 10px;
+  font-family: 'Philosopher' , serif;
+  font-weight: bold;
+  color: white;
+}
+
+.search-work2{
+  margin-left: 40px;
+}

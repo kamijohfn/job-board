@@ -4,6 +4,11 @@ class CreateJobs < ActiveRecord::Migration[6.0]
       t.string     :name,            null: false
       t.integer    :salary_id,       null: false
       t.integer    :area_id ,        null: false
+      t.string     :city,            null: false
+      t.string     :address,         null: false
+      t.string     :building
+      t.string     :phone,           null: false
+      t.text       :map
       t.integer    :work1_id,        null: false
       t.integer    :work2_id
       t.integer    :work3_id
