@@ -71,21 +71,28 @@ googleフォームを送ることができる
 【表示】
 求人編集フォームがある
 
-# 実装した機能について
-ログイン/ログアウト機能
-求人投稿機能
-求人検索機能
-求人一覧表示
-求人情報投稿機能
-求人情報編集/削除機能
-コメント機能
-googleフォーム
+## 実装した機能について
+# ログイン/ログアウト機能
+[![Image from Gyazo](https://i.gyazo.com/344d0e8c2f1e78761cc4c0328552edc0.gif)](https://gyazo.com/344d0e8c2f1e78761cc4c0328552edc0)
+
+# 求人投稿機能
+[![Image from Gyazo](https://i.gyazo.com/eb65edb1ba9ede24e598f378ee6c11d1.gif)](https://gyazo.com/eb65edb1ba9ede24e598f378ee6c11d1)
+
+# 求人検索機能
+[![Image from Gyazo](https://i.gyazo.com/78ad3b20dc1a1e48b69eff71599ce857.gif)](https://gyazo.com/78ad3b20dc1a1e48b69eff71599ce857)
+
+# 求人情報編集/削除機能
+[![Image from Gyazo](https://i.gyazo.com/eeefb58cbf4963cca2732c79a7614317.gif)](https://gyazo.com/eeefb58cbf4963cca2732c79a7614317)
+
+
 
 # 実装予定の機能
+コメント機能
 アドミンユーザー/一般ユーザーの区別
 自動求人削除機能
 
 # データベース設計
+[![Image from Gyazo](https://i.gyazo.com/6787b6d4cee6d35feea302b610ceb437.png)](https://gyazo.com/6787b6d4cee6d35feea302b610ceb437)
 
 # 
 
