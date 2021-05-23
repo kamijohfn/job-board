@@ -3,6 +3,8 @@ class JobsController < ApplicationController
   before_action :set_job, only:[:edit, :show, :update]
   before_action :search_product, only: [:index, :search]
 
+  protect_from_forgery :except => [:destroy]
+
   def index
     @jobs = Job.all.order("created_at DESC")
   end
