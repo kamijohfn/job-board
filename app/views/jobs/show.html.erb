@@ -16,7 +16,8 @@
       <% if user_signed_in? && current_user.id == @job.user_id  %>
         <div class="prototype__manage">
           <%= link_to "編集する", edit_job_path(@job.id), class: :prototype__btn %>
-          <%= link_to "削除する", job_path(@job.id), method: :delete, class: :prototype__btn %>
+          <%= button_to "削除する", job_path(@job.id), method: :delete, class: :prototype__btn %>
+          <%#= link_to "削除する", job_path(@job.id), method: :delete, class: :prototype__btn %>
         </div>
       <% end %>
       <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
