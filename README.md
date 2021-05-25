@@ -84,17 +84,25 @@ googleフォームを送ることができる
 # 求人情報編集/削除機能
 [![Image from Gyazo](https://i.gyazo.com/eeefb58cbf4963cca2732c79a7614317.gif)](https://gyazo.com/eeefb58cbf4963cca2732c79a7614317)
 
-
-
 # 実装予定の機能
-コメント機能
+コメント機能 (修正中) 
 アドミンユーザー/一般ユーザーの区別
 自動求人削除機能
 
 # データベース設計
 [![Image from Gyazo](https://i.gyazo.com/6787b6d4cee6d35feea302b610ceb437.png)](https://gyazo.com/6787b6d4cee6d35feea302b610ceb437)
 
-# 
+# ローカルでの動作方法
+  git clone 
+  bundle install 
+  rails db:create
+  rails db:migrate
+  rails s
+
+  Version
+  ruby '2.6.5'
+  rails '~> 6.0.0'
+  mysql2 '>= 0.4.4' 
 
 # テーブル設計
 
