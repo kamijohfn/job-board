@@ -92,6 +92,17 @@ googleフォームを送ることができる
 # データベース設計
 [![Image from Gyazo](https://i.gyazo.com/6787b6d4cee6d35feea302b610ceb437.png)](https://gyazo.com/6787b6d4cee6d35feea302b610ceb437)
 
+# ローカルでの動作方法
+  git clone 
+  bundle install 
+  rails db:create
+  rails db:migrate
+  rails s
+
+  Version
+  ruby '2.6.5'
+  rails '~> 6.0.0'
+  mysql2 '>= 0.4.4' 
 
 # テーブル設計
 
